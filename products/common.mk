@@ -3,7 +3,8 @@ PRODUCT_NAME := cyanogen
 PRODUCT_BRAND := cyanogen
 PRODUCT_DEVICE := generic
 
-PRODUCT_PACKAGES += ADWLauncher
+#PRODUCT_PACKAGES += ADWLauncher
+PRODUCT_PACKAGES += Launcher2
 
 ifdef CYANOGEN_NIGHTLY
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -12,6 +13,8 @@ else
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.rommanager.developerid=cyanogenmod
 endif
+
+ro.rommanager.developerid=einherjar
 
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
 
@@ -34,9 +37,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PACKAGES += \
     AndroidTerm \
     FileManager \
+    Tweaks \
     CMParts \
-    CMStats \
-    CMUpdateNotify \
     DSPManager \
     libcyanogen-dsp \
     Pacman \
@@ -48,8 +50,8 @@ PRODUCT_PACKAGES += \
     openvpn
 
 # Copy over the changelog to the device
-PRODUCT_COPY_FILES += \
-    vendor/cyanogen/CHANGELOG.mkdn:system/etc/CHANGELOG-CM.txt
+#PRODUCT_COPY_FILES += \
+#    vendor/cyanogen/CHANGELOG.mkdn:system/etc/CHANGELOG-CM.txt
 
 # Common CM overlay
 PRODUCT_PACKAGE_OVERLAYS += vendor/cyanogen/overlay/common
