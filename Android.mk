@@ -3,3 +3,4 @@
 ifdef CYANOGEN_WITH_GOOGLE
     PACKAGES.Email.OVERRIDES := Provision QuickSearchBox
 endif
+#define CYANOGEN_WITH_GOOGLE

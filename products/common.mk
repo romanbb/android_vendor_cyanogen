@@ -3,7 +3,7 @@ PRODUCT_NAME := cyanogen
 PRODUCT_BRAND := cyanogen
 PRODUCT_DEVICE := generic
 
-PRODUCT_PACKAGES += ADWLauncher
+#PRODUCT_PACKAGES += ADWLauncher
 
 ifdef CYANOGEN_NIGHTLY
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -36,20 +36,21 @@ PRODUCT_PACKAGES += \
     FileManager \
     CMParts \
     CMStats \
-    CMUpdateNotify \
     DSPManager \
     libcyanogen-dsp \
     Pacman \
     screenshot \
-    CMScreenshot
+    CMScreenshot \
+    Tweaks \
+    Launcher2
 
 # Extra tools in CyanogenMod
 PRODUCT_PACKAGES += \
     openvpn
 
 # Copy over the changelog to the device
-PRODUCT_COPY_FILES += \
-    vendor/cyanogen/CHANGELOG.mkdn:system/etc/CHANGELOG-CM.txt
+#PRODUCT_COPY_FILES += \
+#    vendor/cyanogen/CHANGELOG.mkdn:system/etc/CHANGELOG-CM.txt
 
 # Common CM overlay
 PRODUCT_PACKAGE_OVERLAYS += vendor/cyanogen/overlay/common
@@ -88,6 +89,8 @@ PRODUCT_COPY_FILES += \
 
 PRODUCT_COPY_FILES +=  \
     vendor/cyanogen/proprietary/RomManager.apk:system/app/RomManager.apk \
+    vendor/cyanogen/proprietary/Bloater.apk:system/app/Bloater.apk \
+    vendor/cyanogen/proprietary/Bloater.apk:system/app/LauncherPro.apk \
 
 # Enable SIP+VoIP on all targets
 PRODUCT_COPY_FILES += \
