@@ -5,15 +5,10 @@ PRODUCT_DEVICE := generic
 
 #PRODUCT_PACKAGES += ADWLauncher
 
-ifdef CYANOGEN_NIGHTLY
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.rommanager.developerid=cyanogenmodnightly
-else
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.rommanager.developerid=cyanogenmod
-endif
 
-PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
+PRODUCT_BUILD_PROP_OVERRIDES += \
+	BUILD_UTC_DATE=0 \
+	ro.rommanager.developerid=einherjar
 
 # Used by BusyBox
 KERNEL_MODULES_DIR:=/system/lib/modules
@@ -41,8 +36,7 @@ PRODUCT_PACKAGES += \
     Pacman \
     screenshot \
     CMScreenshot \
-    Tweaks \
-    Launcher2
+    Tweaks
 
 # Extra tools in CyanogenMod
 PRODUCT_PACKAGES += \
@@ -90,7 +84,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES +=  \
     vendor/cyanogen/proprietary/RomManager.apk:system/app/RomManager.apk \
     vendor/cyanogen/proprietary/Bloater.apk:system/app/Bloater.apk \
-    vendor/cyanogen/proprietary/Bloater.apk:system/app/LauncherPro.apk \
+    vendor/cyanogen/proprietary/Bloater.apk:system/app/LauncherPro.apk
 
 # Enable SIP+VoIP on all targets
 PRODUCT_COPY_FILES += \
@@ -99,7 +93,7 @@ PRODUCT_COPY_FILES += \
 # Always run in insecure mode, enables root on user build variants
 #ADDITIONAL_DEFAULT_PROPERTIES += ro.secure=0
 
-ifdef CYANOGEN_WITH_GOOGLE
+#ifdef CYANOGEN_WITH_GOOGLE
 
     # use all present proprietary apk
     PRODUCT_COPY_FILES += $(shell test -f vendor/cyanogen/proprietary/*.apk && \
@@ -121,12 +115,13 @@ ifdef CYANOGEN_WITH_GOOGLE
 	find vendor/cyanogen/proprietary -name '*.xml' \
 	-printf '%p:system/etc/permissions/%f ')
 
-else
-    PRODUCT_PACKAGES += \
-        Provision \
-        GoogleSearch
-endif
+#else
+#    PRODUCT_PACKAGES += \
+#        Provision \
+#        GoogleSearch
+#endif
 
 # Required, keyboard
 PRODUCT_PACKAGES += LatinIME
+
 

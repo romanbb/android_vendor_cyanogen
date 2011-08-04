@@ -50,7 +50,8 @@ else
             ro.modversion=CyanogenMod-7.1.0-RC1-Vibrant
     else
         PRODUCT_PROPERTY_OVERRIDES += \
-            ro.modversion=CyanogenMod-7.1.0-RC1-Vibrant-KANG
+            ro.modversion=CyanogenMod-Trigger-$(shell date +%m%d) \ 
+            ro.rommanager.developerid=einherjar
     endif
 endif
 
