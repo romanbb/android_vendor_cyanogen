@@ -37,19 +37,9 @@ PRODUCT_PACKAGES += GanOptimizer
 #
 # Set ro.modversion
 #
-ifdef CYANOGEN_NIGHTLY
-    PRODUCT_PROPERTY_OVERRIDES += \
-        ro.modversion=CyanogenMod-7-$(shell date +%m%d%Y)-NIGHTLY-G2x
-else
-    ifdef CYANOGEN_RELEASE
-        PRODUCT_PROPERTY_OVERRIDES += \
-            ro.modversion=CyanogenMod-7.1.0-RC1-G2x
-    else
-        PRODUCT_PROPERTY_OVERRIDES += \
-            ro.modversion=CyanogenMod-Trigger-$(shell date +%m%d) \ 
-            ro.rommanager.developerid=einherjar
-    endif
-endif
+
+PRODUCT_PROPERTY_OVERRIDES += \
+	ro.modversion=CyanogenMod-Trigger-g2x-$(shell date +%m%d) 
 
 #
 # Copy hdpi specific prebuilt files

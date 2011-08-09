@@ -7,8 +7,7 @@ PRODUCT_DEVICE := generic
 
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
-	BUILD_UTC_DATE=0 \
-	ro.rommanager.developerid=einherjar
+	BUILD_UTC_DATE=0
 
 # Used by BusyBox
 KERNEL_MODULES_DIR:=/system/lib/modules
@@ -93,33 +92,11 @@ PRODUCT_COPY_FILES += \
 # Always run in insecure mode, enables root on user build variants
 #ADDITIONAL_DEFAULT_PROPERTIES += ro.secure=0
 
-#ifdef CYANOGEN_WITH_GOOGLE
 
-    # use all present proprietary apk
-    PRODUCT_COPY_FILES += $(shell test -f vendor/cyanogen/proprietary/*.apk && \
-	find vendor/cyanogen/proprietary -name '*.apk' \
-	-printf '%p:system/app/%f ')
+PRODUCT_PACKAGES += \
+	Provision \
+	GoogleSearch
 
-    # use all present proprietary lib
-    PRODUCT_COPY_FILES += $(shell test -f vendor/cyanogen/proprietary/*.so && \
-	find vendor/cyanogen/proprietary -name '*.so' \
-	-printf '%p:system/lib/%f ')
-
-    # use all present proprietary jar
-    PRODUCT_COPY_FILES += $(shell test -f vendor/cyanogen/proprietary/*.jar && \
-	find vendor/cyanogen/proprietary -name '*.jar' \
-	-printf '%p:system/framework/%f ')
-
-    # use all present proprietary xml (permissions)
-    PRODUCT_COPY_FILES += $(shell test -f vendor/cyanogen/proprietary/*.xml && \
-	find vendor/cyanogen/proprietary -name '*.xml' \
-	-printf '%p:system/etc/permissions/%f ')
-
-#else
-#    PRODUCT_PACKAGES += \
-#        Provision \
-#        GoogleSearch
-#endif
 
 # Required, keyboard
 PRODUCT_PACKAGES += LatinIME

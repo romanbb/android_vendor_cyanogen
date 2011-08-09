@@ -37,18 +37,9 @@ $(call inherit-product, vendor/cyanogen/products/bcm_fm_radio.mk)
 #
 # Set ro.modversion
 #
-ifdef CYANOGEN_NIGHTLY
-    PRODUCT_PROPERTY_OVERRIDES += \
-        ro.modversion=CyanogenMod-7-$(shell date +%m%d%Y)-NIGHTLY-DesireHD
-else
-    ifdef CYANOGEN_RELEASE
-        PRODUCT_PROPERTY_OVERRIDES += \
-            ro.modversion=CyanogenMod-7.1.0-RC1-DesireHD
-    else
-        PRODUCT_PROPERTY_OVERRIDES += \
-            ro.modversion=CyanogenMod-7.1.0-RC1-DesireHD-KANG
-    endif
-endif
+
+PRODUCT_PROPERTY_OVERRIDES += \
+	ro.modversion=CyanogenMod-Trigger-ace-$(shell date +%m%d) 
 
 #
 # Copy passion specific prebuilt files
